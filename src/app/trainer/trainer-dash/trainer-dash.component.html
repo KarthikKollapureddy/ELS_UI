@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark  bg-success">
+    <a class="navbar-brand" [routerLink]="['/trainer',id]">E Learning App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/trainer',id]">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/trainerGroup',id]">Groups</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/book-search',id]">Books</a>
+        </li>
+      </ul>
+      <span class="col-7"></span>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item  active dropdown">
+            <a style="font-size: larger"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <i class="fas fa-caret-square-down"></i><span class="sr-only">(current)</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+                <button class="dropdown-item" [routerLink]="['/userProfile',id]"  type="submit">Profile</button>
+              
+              
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"  [routerLink]="['/reset',id]">Change Password</a>
+              <div class="dropdown-divider"></div>
+              
+              <a class="dropdown-item"  role="button" href="#">My Wishlist</a>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)="logoutUser()"  type="submit">Sign out</button>
+              </div>
+              </li>
+              </ul>
+      <span>
+      <form class="form-inline my-lg-0 my-lg-0" >
+        <input [(ngModel)]="val" class="form-control mr-sm-2"  name="val" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary my-4 my-lg-3" type="submit" [routerLink]="['/search',id,val]">Search</button>
+      </form>
+      </span>
+      
+              
+              </div>
+              </nav>
+              
+    

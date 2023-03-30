@@ -1,0 +1,87 @@
+<app-student-dash></app-student-dash>
+
+
+<div *ngIf="msg == 'Fail'">
+
+  <img class="style=align-items-center;"  style="height: 35%;width:40%;margin-left: 30%;"  src="assets/img/intersts.jpeg"  alt="..."  /><br>
+
+  <button type="submit" style="margin-left: 40%" class="btn btn-lg btn-primary" (click)="getSub()" data-toggle="modal" data-target="#addInterest">Add Your Interests&nbsp;<span><i class="fas fa-lg fa-heartbeat" style="color:red"></i></span></button>
+
+  <!----------------------------------------- Add Interest ----------------------------------------->
+  <div class="modal fade" id="addInterest" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+       
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle"><b>Add three intersts of your choice</b>
+             <!-- <span> &nbsp;<i class="fas fas fa-plus" style="color: #0b29ab;"></i></span> -->
+            </h4>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+          
+        </div>
+        <div class="modal-body">
+            
+          <form [formGroup]="form" (ngSubmit)="submitForm()"   novalidate>
+            <ul class="checkbox-grid">
+            <div  *ngFor="let dat of subjects; let i=index">
+              
+              
+                <li><input type="checkbox" [value]="dat.subId"  (change)="onCheckboxChange($event)" />
+                  <label>
+                {{dat.subName}}
+              </label></li>
+              
+            </div>
+          </ul>
+          <br>
+          
+         
+            <!-- <input type="submit"  value="Submit" > -->
+             
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" (click)="submitForm()" class="btn btn-primary">Add</button>
+        </div>
+  
+    </div>
+    </div>
+    </div>
+    <!------------------------------------------ End Modal----------------------------------------------------->
+    </div>
+    <div *ngIf="msg == 'Success' ">
+      <div *ngIf="groups.length != 0">
+        <br>
+        <div class="card-deck" style="margin-left: 5%;">
+       
+          <div  class="card shadow-lg border-info mb-3" style="max-width: 18rem;" *ngFor="let gr of groups">
+              <div class="card-header bg-info border-info">
+                {{gr.groupName}}
+              </div>
+              <div class="card-body bg-transparent border-info">
+                <blockquote class="blockquote mb-0">
+                  <p>{{gr.groupDesc}}</p>
+                  <footer class="blockquote-footer bg-transparent border-info">Limit <cite title="Source Titl e">{{gr.groupLimit}}</cite></footer>
+                </blockquote><br>
+                <button type="submit" class="btn bg-transparent border-dark" style="margin-left: 70%;" (click)="joinGroup(gr.groupId)">Join&nbsp;<span><i class="fas fa-sign-in-alt" style="color:orange"></i></span></button>
+
+              </div>
+              </div>
+              </div>
+      </div>
+      <div *ngIf="groups.length == 0">
+
+        <img class="style=align-items-center;"  style="height: 35%;width:40%;margin-left: 30%;"  src="assets/img/empty.jpg"  alt="..."  /><br>
+      </div>
+
+      
+    </div>
+    
+
+
+ 
+
+

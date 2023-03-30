@@ -1,0 +1,62 @@
+<app-trainer-dash></app-trainer-dash>
+<br>
+
+<div *ngIf="groups.length == 0">
+
+    <img class="style=align-items-center;"  style="height: 35%;width:40%;margin-left: 30%;"  src="assets/img/empty.jpg"  alt="..."  /><br>
+  </div>
+  <div *ngIf="msg == '' ">
+    <div class="card-deck" style="margin-left: 5%;">
+       
+<!-- <div  class="card shadow-lg border-warning mb-3" style="max-width: 18rem;" *ngFor="let gr of groups">
+    <div class="card-header bg-warning border-warning">
+      <a class="nav-link"[routerLink]="['/trainerClass',id,gr.groupId]">{{gr.groupName}}</a>
+    </div>
+    <div class="card-body bg-transparent border-warning">
+      <blockquote class="blockquote mb-0">
+        <p>{{gr.groupDesc}}</p>
+        <footer class="blockquote-footer bg-transparent border-warning">Limit <cite title="Source Titl e">{{gr.groupLimit}}</cite></footer>
+      </blockquote>
+    </div>
+    </div>
+    </div> -->
+<!-- cards grp -->
+    <div class="container-fluid" style="margin-left: 3%;">
+      <div class="row">
+          <div class="col-sm cards">
+              <mat-card class="card"  *ngFor="let group of groups">
+                <mat-card-header>
+                  <mat-card-title-group>
+                    <mat-card-title>{{group.groupName}}</mat-card-title>
+                    <mat-card-subtitle>
+                      
+                      <div *ngFor="let subject of subjects">
+                        <div *ngIf="subject.subId == group.groupSub">
+                        <b>Subject :</b>{{subject.subName}}
+                        </div>
+                      </div>
+                      <div *ngFor="let class of classes">
+                        <div *ngIf="class.gradId == group.groupGrad">
+                        <b>Grade :</b> {{class.gradName}}
+                        </div>
+                      </div>
+                    </mat-card-subtitle>
+                    
+                    <img class="image" mat-card-sm-image src="https://cdn-icons-png.flaticon.com/512/615/615075.png" >
+                  </mat-card-title-group>
+                </mat-card-header>
+                <!-- <mat-card-content>
+                  {{group.groupDesc}}
+                </mat-card-content> -->
+                <!-- <mat-card-subtitle>group limit : {{group.groupLimit}}</mat-card-subtitle> -->
+                <mat-card-actions>
+                  <button type="submit" [routerLink]="['/trainerClass',id,group.groupId]" class="btn btn-primary">view group</button>
+                </mat-card-actions>
+              </mat-card>
+          </div>
+      </div>
+  </div>
+  <!-- card end -->
+</div>
+  
+  
