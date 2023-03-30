@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class Subject {}","map":{"version":3,"mappings":"AAAA,OAAM,MAAOA,OAAO","names":["Subject"],"sourceRoot":"","sources":["/Users/KO20422228/Documents/frontend-els/ELS_UI/src/model/subject.ts"],"sourcesContent":["export class Subject {\n    subId!:number;\n    subName!:string;\n}\n"]},"metadata":{},"sourceType":"module","externalDependencies":[]}
